@@ -7,6 +7,16 @@ namespace MoveFunction
 {
     public static class UserCursorFunc
     {
+        public static Vector3 GenerateRandomPosition(float _w, float _h)
+        {
+            float rx = UnityEngine.Random.Range(0, _w);
+            float ry = UnityEngine.Random.Range(0, _h);
+            Vector3 randomPos = new Vector3(rx, ry, 0);
+            Vector3 converted = Camera.main.ScreenToWorldPoint(randomPos);
+            Debug.Log(converted.x + " , " + converted.y);
+            return converted;
+        }
+
         private static Vector3 CursorRange(Vector3 _pos)
         {
             int width = Screen.width;
