@@ -27,7 +27,6 @@ public class CursorMove : MonoBehaviour
         if (Input.GetKeyDown("d"))
         {
             modeManager.delayMode = !modeManager.delayMode;
-            Debug.Log("delay mode: " + modeManager.delayMode);
         }
 
         float ax = Input.GetAxis("Mouse X");
