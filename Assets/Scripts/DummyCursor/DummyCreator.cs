@@ -29,7 +29,6 @@ public class DummyCreator : MonoBehaviour
     {
         for (int i = 1; i < _num; i++)
         {
-
             dummies[i] = Instantiate(dummyPrefab) as GameObject;
             drx = UnityEngine.Random.Range(-9.0f, 9.0f);
             dry = UnityEngine.Random.Range(-5.0f, 5.0f);

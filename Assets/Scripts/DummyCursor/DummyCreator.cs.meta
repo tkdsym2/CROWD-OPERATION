@@ -6,6 +6,8 @@ MonoImporter:
   defaultReferences:
   - dummyPrefab: {fileID: 17169141479547946, guid: c797cfd57bd72406c96b0f83fe2ee378,
       type: 3}
+  - textPrefab: {fileID: 3273299228549033124, guid: 932bb0d4703f9492a89f313b85b51ff6,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -34,17 +34,17 @@ public class CursorMove : MonoBehaviour
 
         Vector3 direction = new Vector3(ax, ay, 0);
 
-        if(modeManager.delayMode)
-        {
+        //if(modeManager.delayMode)
+        //{
             StartCoroutine(UserCursorFunc.DelayCursor(modeManager.delayTime, () =>
             {
                UserCursorFunc.MoveCursor(gameObject, direction);
             }));
-        }
-        else
-        {
-            UserCursorFunc.MoveCursor(gameObject, direction);
-        }
+        //}
+        //else
+        //{
+        //    UserCursorFunc.MoveCursor(gameObject, direction);
+        //}
 
     }
 
