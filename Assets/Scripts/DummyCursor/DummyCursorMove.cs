@@ -21,17 +21,11 @@ public class DummyCursorMove : MonoBehaviour
         float ax = Input.GetAxis("Mouse X");
         float ay = Input.GetAxis("Mouse Y");
         Vector3 direction = new Vector3(ax,ay, 0);
-        //if (modeManager.delayMode)
-        //{
-            StartCoroutine(DummyCursorFunc.DelayCursor(modeManager.delayTime, () =>
+        StartCoroutine(DummyCursorFunc.DelayCursor(modeManager.delayTime, () =>
             {
-                DummyCursorFunc.MoveDummyCursor(gameObject, direction);
+                DummyCursorFunc.MoveDummyCursor(gameObject, direction, modeManager.cdr);
                 clone = gameObject.transform.position;
             }));
-        //}
-        //else
-        //{
-        //    DummyCursorFunc.MoveDummyCursor(gameObject, direction);
-        //}
+
     }
 }
