@@ -50,10 +50,10 @@ namespace MoveFunction
             _action();
         }
 
-        public static void MoveCursor(GameObject _gameObject, Vector3 _direction)
+        public static void MoveCursor(GameObject _gameObject, Vector3 _direction, float _cdr)
         {
             _gameObject.transform.position = CursorRange(_gameObject.transform.position);
-            _gameObject.transform.position += 1 * _direction;
+            _gameObject.transform.position += _cdr * _direction;
         }
     }
 
@@ -106,10 +106,10 @@ namespace MoveFunction
         // args:
         //      _gameObject: generated DummyCursor
         //      _direction: mouse axis
-        public static void MoveDummyCursor(GameObject _gameObject, Vector3 _direction)
+        public static void MoveDummyCursor(GameObject _gameObject, Vector3 _direction, float _cdr)
         {
             _gameObject.transform.position = CursorRange(_gameObject.transform.position);
-            _gameObject.transform.position += 1 * CalcDirection(_gameObject.transform.position.z, _direction);
+            _gameObject.transform.position += _cdr * CalcDirection(_gameObject.transform.position.z, _direction);
         }
     }
 }
