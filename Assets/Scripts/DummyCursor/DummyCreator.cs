@@ -27,7 +27,7 @@ public class DummyCreator : MonoBehaviour
 
     private void GenerateDummyCursor(int _num)
     {
-        for (int i = 1; i < _num; i++)
+        for (int i = 0; i < _num; i++)
         {
             dummies[i] = Instantiate(dummyPrefab) as GameObject;
             drx = UnityEngine.Random.Range(-9.0f, 9.0f);
