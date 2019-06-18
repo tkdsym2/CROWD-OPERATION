@@ -5,10 +5,11 @@ using UnityEngine;
 public class CursorLock : MonoBehaviour
 {
     private bool isLock = false;
+    private bool isVisible = false;
     // Start is called before the first frame update
     void Start()
     {
-        Cursor.visible = false;
+        Cursor.visible = isVisible;
         Cursor.lockState = CursorLockMode.Confined;
     }
 
@@ -16,10 +17,11 @@ public class CursorLock : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown("l")) isLock = !isLock;
+        if (Input.GetKeyDown("v")) isVisible = !isVisible;
 
-        if(isLock)
+        if (isLock)
         {
-            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.lockState = CursorLockMode.Locked;
         }
         else
         {
