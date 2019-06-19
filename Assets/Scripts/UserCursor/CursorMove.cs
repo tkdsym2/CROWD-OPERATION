@@ -6,17 +6,19 @@ using MoveFunction;
 
 public class CursorMove : MonoBehaviour
 {
-    // cursor settings
-    private ModeManager modeManager;
+    // refer application settings
+    public GameObject statusManager;
 
     // define init values
     float rx, ry;
     private Vector3 ConvertPosition;
+    private float delayTime, cdr;
 
     // Start is called before the first frame update
     void Start()
     {
-        modeManager = GetComponent<ModeManager>();
+        delayTime = statusManager.GetComponent<StatusManager>().delayTime;
+        cdr = statusManager.GetComponent<StatusManager>().cdr;
         RandomizeCursorPos();
     }
 
@@ -24,18 +26,14 @@ public class CursorMove : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown("r")) RandomizeCursorPos();
-        if (Input.GetKeyDown("d"))
-        {
-            modeManager.delayMode = !modeManager.delayMode;
-        }
 
         float ax = Input.GetAxis("Mouse X");
         float ay = Input.GetAxis("Mouse Y");
-
         Vector3 direction = new Vector3(ax, ay, 0);
-        StartCoroutine(UserCursorFunc.DelayCursor(modeManager.delayTime, () =>
+
+        StartCoroutine(UserCursorFunc.DelayCursor(delayTime, () =>
         {
-            UserCursorFunc.MoveCursor(gameObject, direction, modeManager.cdr);
+            UserCursorFunc.MoveCursor(gameObject, direction, cdr);
         }));
     }
 

@@ -5,6 +5,7 @@ using UnityEngine;
 public class DummyCreator : MonoBehaviour
 {
     private ModeManager modeManager;
+    public GameObject statusManager;
 
     public GameObject dummyPrefab;
     private int dummyNum;
@@ -14,8 +15,7 @@ public class DummyCreator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        modeManager = GetComponent<ModeManager>();
-        dummyNum = modeManager.dummyNum;
+        dummyNum = statusManager.GetComponent<StatusManager>().dummyNum;
         dummies = new GameObject[dummyNum];
         GenerateDummyCursor(dummyNum);
     }

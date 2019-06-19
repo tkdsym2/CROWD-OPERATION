@@ -5,14 +5,17 @@ using MoveFunction;
 
 public class DummyCursorMove : MonoBehaviour
 {
-    private ModeManager modeManager;
+    public StatusManager statusManager;
+    private float delayTime, cdr;
     private float rx, ry;
     public Vector3 clone;
     public int hoge = 0;
     // Start is called before the first frame update
     void Start()
     {
-        modeManager = GetComponent<ModeManager>();
+        statusManager = GameObject.Find("StatusManager").GetComponent<StatusManager>();
+        delayTime = statusManager.delayTime;
+        cdr = statusManager.cdr;
     }
 
     // Update is called once per frame
@@ -21,9 +24,9 @@ public class DummyCursorMove : MonoBehaviour
         float ax = Input.GetAxis("Mouse X");
         float ay = Input.GetAxis("Mouse Y");
         Vector3 direction = new Vector3(ax,ay, 0);
-        StartCoroutine(DummyCursorFunc.DelayCursor(modeManager.delayTime, () =>
+        StartCoroutine(DummyCursorFunc.DelayCursor(delayTime, () =>
             {
-                DummyCursorFunc.MoveDummyCursor(gameObject, direction, modeManager.cdr);
+                DummyCursorFunc.MoveDummyCursor(gameObject, direction, cdr);
                 clone = gameObject.transform.position;
             }));
 
