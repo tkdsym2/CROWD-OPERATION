@@ -2,31 +2,38 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class CreateDummyDebugger : MonoBehaviour
 {
-    private ModeManager modeManager;
+    private StatusManager sm;
     public GameObject textPrefab;
     private GameObject[] text;
 
     public GameObject dummyClones;
 
     //public Text textPrefab;
-    private int dummyNum;
     private float drx, dry, drangle;
     private int counter;
     // Start is called before the first frame update
     void Start()
     {
-        modeManager = GetComponent<ModeManager>();
-        dummyNum = modeManager.dummyNum;
-        text = new GameObject[dummyNum];
-        GenerateDummyDebugger(dummyNum);
+        sm = GameObject.Find("StatusManager").GetComponent<StatusManager>();
+        text = new GameObject[sm.dummyNum];
+        GenerateDummyDebugger(sm.dummyNum);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetKeyDown("r"))
+        {
+            destroyClones(text.Length);
+            Array.Clear(text, 0, text.Length);
+            text = new GameObject[sm.dummyNum];
+            GenerateDummyDebugger(sm.dummyNum);
+        }
+
         counter = 0;
         foreach(Transform child in dummyClones.transform) {
             Vector3 pos = Camera.main.WorldToScreenPoint(new Vector3(child.transform.position.x, child.transform.position.y, 0));
@@ -44,6 +51,12 @@ public class CreateDummyDebugger : MonoBehaviour
         {
             text[i] = Instantiate(textPrefab) as GameObject;
             text[i].transform.SetParent(this.transform);
+        }
+    }
+
+    private void destroyClones(int _num){
+        for(int i = 0; i < _num; i++) {
+            DestroyImmediate(text[i]);
         }
     }
 }
