@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class DummyCreator : MonoBehaviour
 {
-    private ModeManager modeManager;
     public GameObject statusManager;
 
     public GameObject dummyPrefab;
