@@ -12,7 +12,7 @@ public class StatusManager : MonoBehaviour
     public int dummyNum;// number of dummy cursor
     public float cdr; // control-display ratio
     public void Awake() {
-        delayTime = 0.0f;
+        delayTime = 0.0f; // second
         dummyNum = 12;
         cdr = 1.0f;
     }
