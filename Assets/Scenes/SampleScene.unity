@@ -1854,6 +1854,8 @@ MonoBehaviour:
   dummyNum: 0
   cdr: 0
   isShowingDebugger: 0
+  minRotation: 0
+  maxRotation: 0
 --- !u!1 &1514313784
 GameObject:
   m_ObjectHideFlags: 0
@@ -2115,8 +2117,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 264.67, y: 141.6}
-  m_SizeDelta: {x: 182.58, y: 75.81}
+  m_AnchoredPosition: {x: 330.24, y: 124.59}
+  m_SizeDelta: {x: 246.81, y: 109.83}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1584174358
 MonoBehaviour:
@@ -2561,8 +2563,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 107.46, y: 141.6}
-  m_SizeDelta: {x: 131.83, y: 75.807}
+  m_AnchoredPosition: {x: 124.19, y: 124.59}
+  m_SizeDelta: {x: 165.29, y: 109.83}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1918433282
 MonoBehaviour:
@@ -2601,7 +2603,9 @@ MonoBehaviour:
 
     Dummies
 
-    C/D Ratio'
+    C/D Ratio
+
+    Min/Max Rotation'
 --- !u!222 &1918433283
 CanvasRenderer:
   m_ObjectHideFlags: 0
