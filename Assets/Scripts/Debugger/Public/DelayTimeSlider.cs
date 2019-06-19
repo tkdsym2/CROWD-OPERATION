@@ -26,4 +26,10 @@ public class DelayTimeSlider : MonoBehaviour
     {
         modeManager.delayTime = delaySlider.value / 1000f;
     }
+
+    public void OnValueChange()
+    {
+        modeManager.delayTime = delaySlider.value / 1000f;
+        Debug.Log(modeManager.delayTime);
+    }
 }
