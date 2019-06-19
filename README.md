@@ -2,6 +2,10 @@
 
 ダミーカーソルをUnity で実装．
 
+## Release
+
+- 2019.06.19. ver 0.1 is released !
+
 ## 機能
 
 - [x] 遅延
