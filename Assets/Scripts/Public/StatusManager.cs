@@ -11,9 +11,11 @@ public class StatusManager : MonoBehaviour
     public float delayTime;// delay time forall cursor
     public int dummyNum;// number of dummy cursor
     public float cdr; // control-display ratio
+    public bool isShowingDebugger; // debugger view switch
     public void Awake() {
         delayTime = 0.0f; // second
         dummyNum = 12;
         cdr = 1.0f;
+        isShowingDebugger = false;
     }
 }
