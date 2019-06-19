@@ -13,13 +13,16 @@ public class CurrentDelayTime : MonoBehaviour
     {
         currentDelayTime = GetComponent<Text>();
         sm = statusManager.GetComponent<StatusManager>();
-        currentDelayTime.text = sm.delayTime.ToString() + "\n" + sm.dummyNum.ToString();
+        currentDelayTime.text = sm.delayTime.ToString() + "\n" 
+            + sm.dummyNum.ToString()
+            + sm.cdr.ToString();
     }
 
     // Update is called once per frame
     void Update()
     {
         currentDelayTime.text = (sm.delayTime * 1000).ToString() + " [ms]\n" 
+            + sm.dummyNum.ToString() + "\n"
             + sm.dummyNum.ToString();
     }
 }
