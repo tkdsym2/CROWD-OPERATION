@@ -1,27 +1,34 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class DummyCreator : MonoBehaviour
 {
-    public GameObject statusManager;
+    private StatusManager sm;
 
     public GameObject dummyPrefab;
-    private int dummyNum;
     private float drx, dry, drangle;
     private GameObject[] dummies;
 
     // Start is called before the first frame update
     void Start()
     {
-        dummyNum = statusManager.GetComponent<StatusManager>().dummyNum;
-        dummies = new GameObject[dummyNum];
-        GenerateDummyCursor(dummyNum);
+        sm = GameObject.Find("StatusManager").GetComponent<StatusManager>();
+        dummies = new GameObject[sm.dummyNum];
+        GenerateDummyCursor(sm.dummyNum);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetKeyDown("r")) 
+        {
+            destroyClones(dummies.Length);
+            Array.Clear(dummies, 0, dummies.Length);
+            dummies = new GameObject[sm.dummyNum];
+            GenerateDummyCursor(sm.dummyNum);
+        }
     }
 
     private void GenerateDummyCursor(int _num)
@@ -31,10 +38,16 @@ public class DummyCreator : MonoBehaviour
             dummies[i] = Instantiate(dummyPrefab) as GameObject;
             drx = UnityEngine.Random.Range(-9.0f, 9.0f);
             dry = UnityEngine.Random.Range(-5.0f, 5.0f);
-            drangle = Random.Range(45, 360);
+            drangle = UnityEngine.Random.Range(30, 345);
             Vector3 pos = new Vector3(drx, dry, drangle);
             dummies[i].transform.position = new Vector3(drx, dry, drangle);
             dummies[i].transform.parent = transform;
+        }
+    }
+
+    private void destroyClones(int _num){
+        for(int i = 0; i < _num; i++){
+            DestroyImmediate(dummies[i]);
         }
     }
 }
