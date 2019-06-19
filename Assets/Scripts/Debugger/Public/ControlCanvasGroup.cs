@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class ControlCanvasGroup : MonoBehaviour
 {
+    public GameObject statusManager;
+    private StatusManager sm;
     public CanvasGroup canvasGroup;
-    private bool isShow;
 
     // Start is called before the first frame update
     void Start()
     {
-        isShow = false;
+        sm = statusManager.GetComponent<StatusManager>();
         canvasGroup = gameObject.GetComponent<CanvasGroup>();
         canvasGroup.alpha = 0;
         canvasGroup.interactable = false;
@@ -20,9 +21,12 @@ public class ControlCanvasGroup : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("m")) isShow = !isShow;
+        if (Input.GetKeyDown("m") || Input.GetKeyDown("r")) {
+            sm.isShowingDebugger = !sm.isShowingDebugger;
+            Cursor.visible = false;
+        }
 
-        if (isShow)
+        if (sm.isShowingDebugger)
         {
             canvasGroup.alpha = 1;
             canvasGroup.interactable = true;
