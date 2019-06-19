@@ -632,7 +632,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -674.43, y: -211.92}
+  m_AnchoredPosition: {x: -772.2501, y: -272.5}
   m_SizeDelta: {x: 248.4, y: 21.44}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &248937259
@@ -1405,7 +1405,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 164.11, y: 286.3}
+  m_AnchoredPosition: {x: 165.65991, y: 280.72}
   m_SizeDelta: {x: 248.22, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1172752516
@@ -1599,7 +1599,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -674.34, y: -140.48999}
+  m_AnchoredPosition: {x: -772.52, y: -195.48}
   m_SizeDelta: {x: 248.22, y: 18.45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1514313786
@@ -1713,7 +1713,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 254.4, y: 162.11}
+  m_AnchoredPosition: {x: 264.5, y: 162.11}
   m_SizeDelta: {x: 182.58, y: 75.81}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1584174358
@@ -1729,7 +1729,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0.1462264, g: 0.6046061, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1842,7 +1842,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Delay Operator
+  m_Text: 'Cursor Operator
 
 '
 --- !u!222 &1703006697
@@ -2085,8 +2085,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 100.150024, y: 186.51001}
-  m_SizeDelta: {x: 117.55, y: 27}
+  m_AnchoredPosition: {x: 107.29, y: 162.11}
+  m_SizeDelta: {x: 131.83, y: 75.807}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1918433282
 MonoBehaviour:
@@ -2121,7 +2121,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Current Delay
+  m_Text: 'Current Delay
+
+    Dummies'
 --- !u!222 &1918433283
 CanvasRenderer:
   m_ObjectHideFlags: 0
