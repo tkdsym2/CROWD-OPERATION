@@ -12,10 +12,14 @@ public class StatusManager : MonoBehaviour
     public int dummyNum;// number of dummy cursor
     public float cdr; // control-display ratio
     public bool isShowingDebugger; // debugger view switch
+    public int minRotation; // minimum rotation
+    public int maxRotation;// maximum rotation
     public void Awake() {
         delayTime = 0.0f; // second
         dummyNum = 12;
         cdr = 1.0f;
         isShowingDebugger = false;
+        minRotation = 30;
+        maxRotation = 345;
     }
 }
