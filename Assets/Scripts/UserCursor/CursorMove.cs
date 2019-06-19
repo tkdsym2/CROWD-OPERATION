@@ -8,6 +8,7 @@ public class CursorMove : MonoBehaviour
 {
     // refer application settings
     public GameObject statusManager;
+    private StatusManager sm;
 
     // define init values
     float rx, ry;
@@ -17,15 +18,20 @@ public class CursorMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        delayTime = statusManager.GetComponent<StatusManager>().delayTime;
-        cdr = statusManager.GetComponent<StatusManager>().cdr;
+        sm = statusManager.GetComponent<StatusManager>();
+        delayTime = sm.delayTime;
+        cdr = sm.cdr;
         RandomizeCursorPos();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("r")) RandomizeCursorPos();
+        if (Input.GetKeyDown("r")) {
+            delayTime = sm.delayTime;
+            cdr = sm.cdr;
+            RandomizeCursorPos();
+        }
 
         float ax = Input.GetAxis("Mouse X");
         float ay = Input.GetAxis("Mouse Y");
