@@ -38,7 +38,7 @@ public class DummyCreator : MonoBehaviour
             dummies[i] = Instantiate(dummyPrefab) as GameObject;
             drx = UnityEngine.Random.Range(-9.0f, 9.0f);
             dry = UnityEngine.Random.Range(-5.0f, 5.0f);
-            drangle = UnityEngine.Random.Range(30, 345);
+            drangle = UnityEngine.Random.Range(sm.minRotation, sm.maxRotation);
             Vector3 pos = new Vector3(drx, dry, drangle);
             dummies[i].transform.position = new Vector3(drx, dry, drangle);
             dummies[i].transform.parent = transform;
