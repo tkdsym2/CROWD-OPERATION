@@ -1200,7 +1200,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1001357317}
   - component: {fileID: 1001357318}
-  - component: {fileID: 1001357319}
   m_Layer: 0
   m_Name: DummyCursorDebuggerParent
   m_TagString: Untagged
@@ -1237,22 +1236,6 @@ MonoBehaviour:
   textPrefab: {fileID: 3273299228549033124, guid: 932bb0d4703f9492a89f313b85b51ff6,
     type: 3}
   dummyClones: {fileID: 1076993917}
---- !u!114 &1001357319
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1001357316}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8140f6485a86847c4aed222878eb8024, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delayMode: 0
-  delayTime: 0
-  dummyNum: 0
-  cdr: 0
 --- !u!1 &1049207388
 GameObject:
   m_ObjectHideFlags: 0
@@ -1318,7 +1301,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a14a131508148fa959e747a969d899, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statusManager: {fileID: 1393194074}
   dummyPrefab: {fileID: 17169141479547946, guid: c797cfd57bd72406c96b0f83fe2ee378,
     type: 3}
 --- !u!4 &1076993919
