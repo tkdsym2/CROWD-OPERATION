@@ -6,30 +6,23 @@ using UnityEngine.UI;
 public class DelayTimeSlider : MonoBehaviour
 {
     private Slider delaySlider;
-    private ModeManager modeManager;
-
+    public GameObject statusManager;
+    private StatusManager sm;
+    private float delayTime;
     // Start is called before the first frame update
     void Start()
     {
-        modeManager = GetComponent<ModeManager>();
         delaySlider = GetComponent<Slider>();
-        delaySlider.value = modeManager.delayTime;
+        sm = statusManager.GetComponent<StatusManager>();
+        delayTime = sm.delayTime;
+        delaySlider.value = delayTime;
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        // delaySlider.value = modeManager.delayTime;
-    }
-
-    public void ValueChangeCheck()
-    {
-        modeManager.delayTime = delaySlider.value / 1000f;
-    }
+    void Update(){}
 
     public void OnValueChange()
     {
-        modeManager.delayTime = delaySlider.value / 1000f;
-        Debug.Log(modeManager.delayTime);
+        sm.delayTime = delaySlider.value / 1000f;
     }
 }
