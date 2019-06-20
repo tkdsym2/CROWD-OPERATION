@@ -17,6 +17,7 @@ public class StatusManager : MonoBehaviour
     public int maxRotation;// maximum rotation
     public float discoveredTime;// until discovered time[ms]
     public bool isStarted;// whether started recording
+    public bool canRandomize;
     public void Awake() {
         isDiscover = false;
         delayTime = 0.0f; // second
@@ -27,5 +28,6 @@ public class StatusManager : MonoBehaviour
         maxRotation = 345;
         discoveredTime = 0.0f;
         isStarted = false;
+        canRandomize = false;
     }
 }
