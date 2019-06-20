@@ -16,7 +16,7 @@ public class CursorLock : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("l")) isLock = !isLock;
+        if (Input.GetKeyDown("l") || Input.GetKeyDown("r")) isLock = !isLock;
         if (Input.GetKeyDown("v")) isVisible = !isVisible;
 
         if (isLock)

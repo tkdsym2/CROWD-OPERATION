@@ -22,8 +22,8 @@ public class CursorView : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space)) sm.isDiscover = !sm.isDiscover;
-        if(Input.GetKeyDown("r") && sm.isDiscover) sm.isDiscover = !sm.isDiscover;
+        if (Input.GetKeyDown(KeyCode.Space) && !sm.isStarted) sm.isDiscover = !sm.isDiscover;
+        if (Input.GetKeyDown("r") && sm.isDiscover) sm.isDiscover = !sm.isDiscover;
 
         if (sm.isDiscover)
         {
