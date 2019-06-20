@@ -21,8 +21,12 @@ public class ControlCanvasGroup : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("m") || Input.GetKeyDown("r")) {
-            if(sm.isShowingDebugger) sm.isShowingDebugger = !sm.isShowingDebugger;
+        if (Input.GetKeyDown("d")) {
+            sm.isShowingDebugger = !sm.isShowingDebugger;
+            Cursor.visible = false;
+        }
+        if (Input.GetKeyDown("r") && sm.isShowingDebugger) {
+            sm.isShowingDebugger = !sm.isShowingDebugger;
             Cursor.visible = false;
         }
 
