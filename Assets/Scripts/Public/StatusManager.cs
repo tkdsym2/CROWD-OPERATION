@@ -8,7 +8,7 @@ using UnityEngine;
 
 public class StatusManager : MonoBehaviour
 {
-    public bool isDiscover;// whether discovered self cursor
+    public bool isDiscover;// whetherto be discovered self cursor
     public float delayTime;// delay time forall cursor[ms]
     public int dummyNum;// number of dummy cursor
     public float cdr; // control-display ratio
@@ -16,8 +16,9 @@ public class StatusManager : MonoBehaviour
     public int minRotation; // minimum rotation
     public int maxRotation;// maximum rotation
     public float discoveredTime;// until discovered time[ms]
-    public bool isStarted;// whether started recording
-    public bool canRandomize;
+    public bool isStarted;// whether to be started recording
+    public bool canRandomize;// whether to randomize cursor
+    public int selectedVisual;// selected cursor visual number
     public void Awake() {
         isDiscover = false;
         delayTime = 0.0f; // second
@@ -29,5 +30,6 @@ public class StatusManager : MonoBehaviour
         discoveredTime = 0.0f;
         isStarted = false;
         canRandomize = false;
+        selectedVisual = 0;
     }
 }
