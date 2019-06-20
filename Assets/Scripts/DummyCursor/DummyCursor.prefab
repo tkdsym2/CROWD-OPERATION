@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 17169141479547947}
   - component: {fileID: -1871758761938823893}
   - component: {fileID: -587533077886810227}
+  - component: {fileID: 4930585885435793059}
   m_Layer: 0
   m_Name: DummyCursor
   m_TagString: Untagged
@@ -93,7 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b64a0623f15ef4056bfc9581d8515086, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statusManager: {fileID: 17169141479547946}
+  sm: {fileID: 0}
   clone: {x: 0, y: 0, z: 0}
 --- !u!114 &-587533077886810227
 MonoBehaviour:
@@ -107,3 +108,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f65ec32cc2f4946bb9dde3b0795fc293, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4930585885435793059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 17169141479547946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cf53be82374a48de8165860c496a5b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultCursor: {fileID: 21300000, guid: dbadbecf7d902430883ced79f4175b67, type: 3}
+  discoveredCursor: {fileID: 21300000, guid: 895d5d987382b4cac8278a4b9542e7f5, type: 3}
+  circleCursor: {fileID: 21300000, guid: a341fdb82a6b24926b7b4c25a31f6084, type: 3}
+  discoveredCircleCursor: {fileID: 21300000, guid: c2bb8a28107924ebfa4d052bc4c7ef31,
+    type: 3}
+  squareCursor: {fileID: 21300000, guid: 530367483a6ca43909df07a5120bdcbc, type: 3}
+  discoveredSquareCursor: {fileID: 21300000, guid: 637cb988db4944e29b4b02f95182e117,
+    type: 3}
