@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 4cf53be82374a48de8165860c496a5b6
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - defaultCursor: {fileID: 21300000, guid: dbadbecf7d902430883ced79f4175b67, type: 3}
+  - discoveredCursor: {fileID: 21300000, guid: 895d5d987382b4cac8278a4b9542e7f5, type: 3}
+  - circleCursor: {fileID: 21300000, guid: a341fdb82a6b24926b7b4c25a31f6084, type: 3}
+  - discoveredCircleCursor: {fileID: 21300000, guid: c2bb8a28107924ebfa4d052bc4c7ef31,
+      type: 3}
+  - squareCursor: {fileID: 21300000, guid: 530367483a6ca43909df07a5120bdcbc, type: 3}
+  - discoveredSquareCursor: {fileID: 21300000, guid: 637cb988db4944e29b4b02f95182e117,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
