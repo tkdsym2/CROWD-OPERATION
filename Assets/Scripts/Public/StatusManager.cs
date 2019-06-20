@@ -8,12 +8,13 @@ using UnityEngine;
 
 public class StatusManager : MonoBehaviour
 {
-    public float delayTime;// delay time forall cursor
+    public float delayTime;// delay time forall cursor[ms]
     public int dummyNum;// number of dummy cursor
     public float cdr; // control-display ratio
     public bool isShowingDebugger; // debugger view switch
     public int minRotation; // minimum rotation
     public int maxRotation;// maximum rotation
+    public float discoveredTime;// until discovered time[ms]
     public void Awake() {
         delayTime = 0.0f; // second
         dummyNum = 12;
@@ -21,5 +22,6 @@ public class StatusManager : MonoBehaviour
         isShowingDebugger = false;
         minRotation = 30;
         maxRotation = 345;
+        discoveredTime = 0.0f;
     }
 }
