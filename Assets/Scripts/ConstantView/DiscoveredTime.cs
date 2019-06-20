@@ -23,7 +23,8 @@ public class DiscoveredTime : MonoBehaviour
     void Update()
     {
         if(Input.GetKeyDown("r")) {
-            sm.isStarted = true;
+            sm.isStarted = !sm.isStarted;
+            sm.canRandomize = !sm.canRandomize;
             startTime = Time.time;
             timerText.text = "";
         }
@@ -33,7 +34,8 @@ public class DiscoveredTime : MonoBehaviour
             timerText.text = discoveredTime.ToString("F2") + "[s]" + "\n"
                 + "Press 'r' key to try again"; // when showed player, unit is second
             sm.discoveredTime = (discoveredTime * 1000); // when stored StatusManager, unit is ms
-            sm.isStarted = false;
+            sm.isStarted = !sm.isStarted;
+            sm.canRandomize = !sm.canRandomize;
         }
     }
 }

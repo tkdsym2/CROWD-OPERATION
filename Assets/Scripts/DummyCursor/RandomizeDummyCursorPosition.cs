@@ -14,7 +14,7 @@ public class RandomizeDummyCursorPosition : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("r")) RandomizeCursorPos();
+        if (Input.GetKeyDown("r") && sm.canRandomize) RandomizeCursorPos();
     }
 
     private void RandomizeCursorPos()
