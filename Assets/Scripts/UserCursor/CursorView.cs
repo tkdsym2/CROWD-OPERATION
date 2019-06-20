@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CursorView : MonoBehaviour
 {
+    public GameObject statusManager;
+    private StatusManager sm;
     // define sprite
     SpriteRenderer MainSpriteRenderer;
     public Sprite defaultCursor;
@@ -12,6 +14,7 @@ public class CursorView : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        sm = statusManager.GetComponent<StatusManager>();
         MainSpriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         MainSpriteRenderer.sprite = defaultCursor;
     }
@@ -19,9 +22,10 @@ public class CursorView : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space)) isDiscover = !isDiscover;
+        if (Input.GetKeyDown(KeyCode.Space)) sm.isDiscover = !sm.isDiscover;
+        if(Input.GetKeyDown("r") && sm.isDiscover) sm.isDiscover = !sm.isDiscover;
 
-        if (isDiscover)
+        if (sm.isDiscover)
         {
             MainSpriteRenderer.sprite = discoveredCursor;
         }
