@@ -15,8 +15,9 @@ public class DiscoveredTime : MonoBehaviour
         sm = statusManager.GetComponent<StatusManager>();
         timerText = GetComponent<Text>();
         discoveredTime = 0.0f;
-        timerText.text = "Press 'r' key to start!" + "\n" + "\n" +
-            "When you find your cursor, press 'SPACE' key!";
+        timerText.text = "Press <size=25><color=#4286f4>'R'</color></size> key to start!" + "\n" + "\n" +
+            "When you find your cursor, press <size=25><color=#4286f4>'SPACE'</color></size> key!" + "\n" + "\n" +
+            "also, press <size=25><color=#4286f4>'D'</color></size> key to open debugger!";
     }
 
     // Update is called once per frame
@@ -32,7 +33,8 @@ public class DiscoveredTime : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space) && sm.isStarted){
             discoveredTime = Time.time - startTime;
             timerText.text = discoveredTime.ToString("F2") + "[s]" + "\n"
-                + "Press 'r' key to try again"; // when showed player, unit is second
+                + "Press <size=25><color=#4286f4>'R'</color></size> key to try again!" + "\n" + "\n" +
+                "Press <size=25><color=#4286f4>'D'</color></size> key to open debugger!"; // when showed player, unit is second
             sm.discoveredTime = (discoveredTime * 1000); // when stored StatusManager, unit is ms
             sm.isStarted = !sm.isStarted;
             sm.canRandomize = !sm.canRandomize;
