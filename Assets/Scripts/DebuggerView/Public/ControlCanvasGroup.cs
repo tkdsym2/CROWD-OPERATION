@@ -22,7 +22,7 @@ public class ControlCanvasGroup : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown("m") || Input.GetKeyDown("r")) {
-            sm.isShowingDebugger = !sm.isShowingDebugger;
+            if(sm.isShowingDebugger) sm.isShowingDebugger = !sm.isShowingDebugger;
             Cursor.visible = false;
         }
 
