@@ -1865,6 +1865,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2e3f4888c7864750817bcdc40bc0f61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDiscover: 0
   delayTime: 0
   dummyNum: 0
   cdr: 0
@@ -2049,7 +2050,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 18
-    m_FontStyle: 0
+    m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 40
@@ -2484,6 +2485,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a29e8f57a1d240f3b3cc8078a772230, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  statusManager: {fileID: 1393194074}
   defaultCursor: {fileID: 21300000, guid: a7764688ae4214212b3c069f4855480e, type: 3}
   discoveredCursor: {fileID: 21300000, guid: 895d5d987382b4cac8278a4b9542e7f5, type: 3}
 --- !u!1 &1862212355
