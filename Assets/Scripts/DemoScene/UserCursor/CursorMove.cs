@@ -37,10 +37,15 @@ public class CursorMove : MonoBehaviour
         float ay = Input.GetAxis("Mouse Y");
         Vector3 direction = new Vector3(ax, ay, 0) * 0.5f;
 
-        // StartCoroutine(UserCursorFunc.DelayCursor(delayTime, () =>
-        // {
+        if(sm.isDelay) {
+            StartCoroutine(UserCursorFunc.DelayCursor(delayTime, () =>
+                {
+                    UserCursorFunc.MoveCursor(gameObject, direction, cdr);
+                }));
+        } else {
             UserCursorFunc.MoveCursor(gameObject, direction, cdr);
-        // }));
+        }
+        
     }
 
     private void RandomizeCursorPos() {
