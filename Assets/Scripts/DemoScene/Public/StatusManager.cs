@@ -27,11 +27,33 @@ public class StatusManager : MonoBehaviour
         discoveredTime = 0.0f;
         isStarted = false;
         canRandomize = false;
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void Start(){
+        initializeSettings();
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     void Update(){
-        if(Input.GetKeyDown("a")){
-            SceneManager.LoadScene("settings");
+        if(Input.GetKeyDown("d")){
+            SceneManager.LoadScene("Settings");
         }
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode sceneMode)
+    {
+        initializeSettings();
+    }
+
+    private void initializeSettings()
+    {
+        dm = GameObject.Find("DemoManager").GetComponent<DemoManager>();
+        delayTime = dm.delayTime;
+        dummyNum = dm.dummyNum;
+        cdr = dm.cdr;
+        minAngle = dm.minAngle;
+        maxAngle = dm.maxAngle;
+        selectedVisual = dm.selectedVisual;
     }
 }
