@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /**
  * this manager has all status of applications
@@ -31,5 +32,11 @@ public class StatusManager : MonoBehaviour
         isStarted = false;
         canRandomize = false;
         selectedVisual = 0;
+    }
+
+    void Update(){
+        if(Input.GetKeyDown("a")){
+            SceneManager.LoadScene("settings");
+        }
     }
 }
