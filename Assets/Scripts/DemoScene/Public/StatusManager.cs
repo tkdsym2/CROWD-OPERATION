@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 
 public class StatusManager : MonoBehaviour
 {
+    public bool isDelay;// wherger to switch delay mode
     public bool isDiscover;// whetherto be discovered self cursor
     public float delayTime;// from demo manager
     public int dummyNum;// from demo manager
@@ -55,5 +56,6 @@ public class StatusManager : MonoBehaviour
         minAngle = dm.minAngle;
         maxAngle = dm.maxAngle;
         selectedVisual = dm.selectedVisual;
+        isDelay = (dm.delayTime) == 0 ? true : false;
     }
 }
