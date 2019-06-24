@@ -16,7 +16,7 @@ public class CurrentDelayTime : MonoBehaviour
         currentDelayTime.text = sm.delayTime.ToString() + "\n" 
             + sm.dummyNum.ToString() + "\n"
             + sm.cdr.ToString() + "\n"
-            + sm.minRotation.ToString() + " / " + sm.maxRotation.ToString();
+            + sm.minAngle.ToString() + " / " + sm.maxAngle.ToString();
     }
 
     // Update is called once per frame
@@ -25,6 +25,6 @@ public class CurrentDelayTime : MonoBehaviour
         currentDelayTime.text = (sm.delayTime * 1000).ToString() + " [ms]\n" 
             + sm.dummyNum.ToString() + "\n"
             + sm.cdr.ToString() + "\n"
-            + sm.minRotation.ToString() + " / " + sm.maxRotation.ToString();
+            + sm.minAngle.ToString() + " / " + sm.maxAngle.ToString();
     }
 }

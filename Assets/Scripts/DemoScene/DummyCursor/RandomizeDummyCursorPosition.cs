@@ -21,7 +21,7 @@ public class RandomizeDummyCursorPosition : MonoBehaviour
     {
         float drx = UnityEngine.Random.Range(-9.0f, 9.0f);
         float dry = UnityEngine.Random.Range(-5.0f, 5.0f);
-        float drangle = Random.Range(sm.minRotation, sm.maxRotation);
+        float drangle = Random.Range(sm.minAngle, sm.maxAngle);
         gameObject.transform.position = new Vector3(drx, dry, drangle);
     }
 }
