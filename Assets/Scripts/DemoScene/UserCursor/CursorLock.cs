@@ -7,7 +7,7 @@ public class CursorLock : MonoBehaviour
     private bool isLock = false;
     private bool isVisible = false;
     void Awake(){
-        Application.targetFrameRate = -1; 
+        Application.targetFrameRate = 60; 
     }
     // Start is called before the first frame update
     void Start()
