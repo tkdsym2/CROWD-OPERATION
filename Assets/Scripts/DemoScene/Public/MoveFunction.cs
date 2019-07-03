@@ -97,8 +97,9 @@ namespace MoveFunction
             float _drangle = _angle;
             float moveRad = (float)(System.Math.PI * _drangle / 180.0);
             float rad = (float)(System.Math.Atan2(_direction.y, _direction.x) + moveRad);
-            float relativeX = (float)(_direction.x * System.Math.Cos(rad));
-            float relativeY = (float)(_direction.y * System.Math.Sin(rad));
+            float moveDist = _direction.magnitude;
+            float relativeX = (float)(moveDist * System.Math.Cos(rad));
+            float relativeY = (float)(moveDist * System.Math.Sin(rad));
             Vector3 addDirection = new Vector3(relativeX, relativeY, 0);
             return addDirection;
         }

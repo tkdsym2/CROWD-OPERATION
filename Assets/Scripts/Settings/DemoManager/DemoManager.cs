@@ -18,7 +18,7 @@ public class DemoManager : MonoBehaviour
         dummyNum = 12;
         cdr = 1.0f;
         minAngle = 30;
-        maxAngle = 345;
+        maxAngle = 360-minAngle;
         selectedVisual = 0;
     }
 
