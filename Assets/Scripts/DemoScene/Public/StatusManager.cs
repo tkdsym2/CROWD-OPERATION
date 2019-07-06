@@ -56,6 +56,6 @@ public class StatusManager : MonoBehaviour
         minAngle = dm.minAngle;
         maxAngle = dm.maxAngle;
         selectedVisual = dm.selectedVisual;
-        isDelay = (dm.delayTime) == 0 ? true : false;
+        isDelay = (dm.delayTime) == 0f ? true : false;
     }
 }

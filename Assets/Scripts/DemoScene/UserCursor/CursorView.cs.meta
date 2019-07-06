@@ -3,7 +3,14 @@ guid: 7a29e8f57a1d240f3b3cc8078a772230
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - statusManager: {instanceID: 0}
+  - defaultCursor: {instanceID: 0}
+  - discoveredCursor: {instanceID: 0}
+  - circleCursor: {instanceID: 0}
+  - discoveredCircleCursor: {instanceID: 0}
+  - squareCursor: {instanceID: 0}
+  - discoveredSquareCursor: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
