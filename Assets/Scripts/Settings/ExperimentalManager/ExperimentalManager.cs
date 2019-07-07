@@ -18,6 +18,7 @@ public class ExperimentalManager : MonoBehaviour
     public int selectedVisual;
     public List<int> delaySession;
     public List<string> ExperimentalSettings;
+    public int trial;
 
     void Awake()
     {
@@ -36,6 +37,7 @@ public class ExperimentalManager : MonoBehaviour
         delaySession.Add(1);
         ExperimentalSettings = new List<string>();
         ExperimentalSettings.Add("init");
+        trial = 5;
     }
 
     // Start is called before the first frame update
@@ -105,6 +107,7 @@ public class ExperimentalManager : MonoBehaviour
                     float _cdr = cdrSession[k];
                     int trial = 5;
                     ExperimentalSettings.Add($"{_dummies.ToString()}" + "," + $"{_delay.ToString()}" + "," + $"{_cdr.ToString()}" + "," + trial.ToString());
+                    for(int l = 0; l < trial; l++){
                 }
             }
         }
