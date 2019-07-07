@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using System.Data;
+using System.IO;
+using System.Text;
 
 public class ExperimentalManager : MonoBehaviour
 {
@@ -12,8 +13,11 @@ public class ExperimentalManager : MonoBehaviour
     public float intervalDelay;
     public int minAngle;
     public int maxAngle;
+    public float cdr;
+    public List<float> cdrSession;
     public int selectedVisual;
     public List<int> delaySession;
+    public List<string> ExperimentalSettings;
 
     void Awake()
     {
@@ -25,8 +29,13 @@ public class ExperimentalManager : MonoBehaviour
         minAngle = 30;
         maxAngle = 360-minAngle;
         selectedVisual = 0;
+        cdr = 1.0f;
+        cdrSession = new List<float>();
+        cdrSession.Add(cdr);
         delaySession = new List<int>();
         delaySession.Add(1);
+        ExperimentalSettings = new List<string>();
+        ExperimentalSettings.Add("init");
     }
 
     // Start is called before the first frame update
@@ -38,7 +47,10 @@ public class ExperimentalManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(Input.GetKeyDown("p"))
+        {
+            SaveSeaquence();
+        }
     }
 
     private void ChangeScene()
@@ -46,12 +58,12 @@ public class ExperimentalManager : MonoBehaviour
         SceneManager.LoadScene("Experiments", LoadSceneMode.Single);
     }
 
-    private int CalcSession(float _min, float _max, float _interval)
+    private int CalcDelaySession(float _min, float _max, float _interval)
     {
         delaySession.Clear();
-        int min = (int)(_min);
-        int max = (int)(_max);
-        int interval = (int)(_interval);
+        int min = (int)(_min * 1000);
+        int max = (int)(_max * 1000);
+        int interval = (int)(_interval * 1000);
 
         if(min >= max) return 0;
 
@@ -68,6 +80,7 @@ public class ExperimentalManager : MonoBehaviour
             {
                 delaySession.Add(i*interval);
             }
+            delaySession.Add(max);
             return delaySession.Count;
         } else
         {
@@ -77,6 +90,23 @@ public class ExperimentalManager : MonoBehaviour
             }
             delaySession.Add(max);
             return delaySession.Count;
+        }
+    }
+
+    public void SaveSeaquence()
+    {
+        ExperimentalSettings.Clear();
+        int delaySessionSum = CalcDelaySession(minDelay, maxDelay, intervalDelay);
+        for(int i = 0; i < dummyNumSession.Count; i++){
+            for(int j = 0; j < delaySessionSum; j++){
+                for(int k = 0; k < cdrSession.Count; k++){
+                    int _dummies = dummyNumSession[i];
+                    int _delay = delaySession[j];
+                    float _cdr = cdrSession[k];
+                    int trial = 5;
+                    ExperimentalSettings.Add($"{_dummies.ToString()}" + "," + $"{_delay.ToString()}" + "," + $"{_cdr.ToString()}" + "," + trial.ToString());
+                }
+            }
         }
     }
 }
