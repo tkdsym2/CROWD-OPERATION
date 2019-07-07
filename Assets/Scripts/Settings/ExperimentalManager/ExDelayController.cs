@@ -50,6 +50,6 @@ public class ExDelayController : MonoBehaviour
     {
         intervalDelayText.text = intervalDelayField.text;
         float _temp = (intervalDelayText.text == "" || intervalDelayText.text == null) ? 1f : float.Parse(intervalDelayText.text);
-        em.intervalDelay =_temp/1000f;
+        em.intervalDelay = _temp/1000f;
     }
 }
