@@ -49,23 +49,21 @@ public class ExperimentalManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown("p"))
-        {
-            SaveSeaquence();
-        }
+        if(Input.GetKeyDown("e")) ChangeScene();
     }
 
     private void ChangeScene()
     {
+        SaveSeaquence();
         SceneManager.LoadScene("Experiments", LoadSceneMode.Single);
     }
 
     private int CalcDelaySession(float _min, float _max, float _interval)
     {
         delaySession.Clear();
-        int min = (int)(_min * 1000);
-        int max = (int)(_max * 1000);
-        int interval = (int)(_interval * 1000);
+        int min = Mathf.CeilToInt(_min * 1000f);
+        int max = Mathf.CeilToInt(_max * 1000f);
+        int interval = Mathf.CeilToInt(_interval * 1000f);
 
         if(min >= max) return 0;
 
@@ -102,12 +100,12 @@ public class ExperimentalManager : MonoBehaviour
         for(int i = 0; i < dummyNumSession.Count; i++){
             for(int j = 0; j < delaySessionSum; j++){
                 for(int k = 0; k < cdrSession.Count; k++){
-                    int _dummies = dummyNumSession[i];
-                    int _delay = delaySession[j];
-                    float _cdr = cdrSession[k];
-                    int trial = 5;
-                    ExperimentalSettings.Add($"{_dummies.ToString()}" + "," + $"{_delay.ToString()}" + "," + $"{_cdr.ToString()}" + "," + trial.ToString());
                     for(int l = 0; l < trial; l++){
+                        int _dummies = dummyNumSession[i];
+                        int _delay = delaySession[j];
+                        float _cdr = cdrSession[k];
+                        ExperimentalSettings.Add($"{_dummies.ToString()}" + "," + $"{_delay.ToString()}" + "," + $"{_cdr.ToString()}");
+                    }
                 }
             }
         }
