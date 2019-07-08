@@ -11,6 +11,9 @@ public class StudyManager : MonoBehaviour
     public float sessionIntervalTime;
     public bool isDiscover;
     public int selectedVisual;
+    public List<string> studySessions;
+    public string perSession;
+    public bool isStartSession;
     private ExperimentalManager em;
     public void Awake()
     {
@@ -20,6 +23,8 @@ public class StudyManager : MonoBehaviour
         isDiscover = false;
         sessionIntervalTime = 4.0f;
         selectedVisual = 0;
+        perSession = "";
+        isStartSession = false;
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
     // Start is called before the first frame update
@@ -43,5 +48,6 @@ public class StudyManager : MonoBehaviour
     private void initializeSettings()
     {
         em = GameObject.Find("ExperimentalManager").GetComponent<ExperimentalManager>();
+        studySessions = new List<string>(em.ExperimentalSettings);
     }
 }
