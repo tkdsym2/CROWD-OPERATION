@@ -25,7 +25,7 @@ public class DemoManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        DontDestroyOnLoad(this);// store for all scene
+        
     }
 
     // Update is called once per frame
@@ -36,6 +36,7 @@ public class DemoManager : MonoBehaviour
 
     private void ChangeScene()
     {
+        DontDestroyOnLoad(this);// store for all scene
         SceneManager.LoadScene("Demo", LoadSceneMode.Single);
     }
 }

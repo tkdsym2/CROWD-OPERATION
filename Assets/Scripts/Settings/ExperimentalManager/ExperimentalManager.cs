@@ -43,7 +43,7 @@ public class ExperimentalManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        DontDestroyOnLoad(this);
+        
     }
 
     // Update is called once per frame
@@ -55,6 +55,7 @@ public class ExperimentalManager : MonoBehaviour
     private void ChangeScene()
     {
         SaveSeaquence();
+        DontDestroyOnLoad(this);
         SceneManager.LoadScene("Experiments", LoadSceneMode.Single);
     }
 
