@@ -11,11 +11,14 @@ public class IntervalTimer : MonoBehaviour
     private int seconds;
     public GameObject userCursor;
     private ExCursorMove excv;
+    public GameObject dummyCursor;
+    private ExDummyCreator exdc;
     // Start is called before the first frame update
     void Start()
     {
         sm = GameObject.Find("StudyManager").GetComponent<StudyManager>();
         excv = userCursor.GetComponent<ExCursorMove>();
+        exdc = dummyCursor.GetComponent<ExDummyCreator>();
         timerView = gameObject.GetComponent<Text>();
         intervalTime = sm.sessionIntervalTime;// interval is 3 seconds
     }
@@ -51,5 +54,6 @@ public class IntervalTimer : MonoBehaviour
         sm.cdr = float.Parse(_params[2]);
 
         excv.RandomizeCursorPos();// generate user cursor
+        exdc.GenerateDummyCursor(sm.dummyNum);// generate dummy curosr
     }
 }
