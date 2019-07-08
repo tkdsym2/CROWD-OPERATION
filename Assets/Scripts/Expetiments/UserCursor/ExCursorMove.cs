@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using MoveFunction;
+using UnityEngine.UI;
 
 public class ExCursorMove : MonoBehaviour
 {
@@ -12,10 +13,20 @@ public class ExCursorMove : MonoBehaviour
     private Vector3 ConvertPosition;
     private float delayTime, cdr;
 
+    public Text judgeAndTimeView;
+    private JudgeAndTimeViewer jatv;
+    public Canvas timerPanel;
+    private IntervalTimerViewController itvc;
+    public Text intervalTimer;
+    private IntervalTimer it;
+
     // Start is called before the first frame update
     void Start()
     {
         sm = studyManager.GetComponent<StudyManager>();
+        jatv = judgeAndTimeView.GetComponent<JudgeAndTimeViewer>();
+        itvc = timerPanel.GetComponent<IntervalTimerViewController>();
+        it = intervalTimer.GetComponent<IntervalTimer>();
     }
 
     // Update is called once per frame
@@ -27,13 +38,20 @@ public class ExCursorMove : MonoBehaviour
             ay = Input.GetAxis("Mouse Y");
             Vector3 direction = new Vector3(ax, ay, 0) * 0.5f;
 
-            if(!sm.isDelay) {
+            if(sm.isDelay) {
                 StartCoroutine(UserCursorFunc.DelayCursor(sm.delayTime, () =>
                     {
                         UserCursorFunc.MoveCursor(gameObject, direction, sm.cdr);
                     }));
             } else {
                 UserCursorFunc.MoveCursor(gameObject, direction, sm.cdr);
+            }
+
+            if (Input.GetKeyDown(KeyCode.Space) && sm.isStartStudy)
+            {
+                jatv.FinishRecording();
+                itvc.ShowIntervalTimer();
+                sm.isStartSession = false;
             }
         }
     }

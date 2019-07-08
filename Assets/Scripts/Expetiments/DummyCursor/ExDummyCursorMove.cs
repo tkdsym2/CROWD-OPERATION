@@ -21,7 +21,7 @@ public class ExDummyCursorMove : MonoBehaviour
         ay = Input.GetAxis("Mouse Y");
         Vector3 direction = new Vector3(ax,ay, 0) * 0.5f;
 
-        if(!sm.isDelay){
+        if(sm.isDelay){
             StartCoroutine(DummyCursorFunc.DelayCursor(sm.delayTime, () =>
             {
                 DummyCursorFunc.MoveDummyCursor(gameObject, direction, sm.cdr);

@@ -20,16 +20,20 @@ public class IntervalTimerViewController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(sm.isStartStudy){
-            canvasGroup.alpha = 1;
-            canvasGroup.interactable = true;
-            canvasGroup.blocksRaycasts = true;
-        }
-        
-        if(sm.finishInterval){
-            canvasGroup.alpha = 0;
-            canvasGroup.interactable = false;
-            canvasGroup.blocksRaycasts = false;
-        }
+
+    }
+
+    public void ShowIntervalTimer()
+    {
+        canvasGroup.alpha = 1;
+        canvasGroup.interactable = true;
+        canvasGroup.blocksRaycasts = true;
+    }
+
+    public void HideIntervalTimer()
+    {
+        canvasGroup.alpha = 0;
+        canvasGroup.interactable = false;
+        canvasGroup.blocksRaycasts = false;
     }
 }
