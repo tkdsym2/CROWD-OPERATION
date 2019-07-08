@@ -12,6 +12,7 @@ public class ExCursorMove : MonoBehaviour
     private float rx, ry, ax, ay;
     private Vector3 ConvertPosition;
     private float delayTime, cdr;
+    private float cx, cy;
 
     public Text judgeAndTimeView;
     private JudgeAndTimeViewer jatv;
@@ -27,6 +28,8 @@ public class ExCursorMove : MonoBehaviour
         jatv = judgeAndTimeView.GetComponent<JudgeAndTimeViewer>();
         itvc = timerPanel.GetComponent<IntervalTimerViewController>();
         it = intervalTimer.GetComponent<IntervalTimer>();
+        cx = Screen.width/2;
+        cy = Screen.height/2;
     }
 
     // Update is called once per frame
@@ -49,6 +52,14 @@ public class ExCursorMove : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Space) && sm.isStartStudy)
             {
+                Vector3 currentCursorPos = Camera.main.WorldToScreenPoint(gameObject.transform.position);
+                float dist = Vector2.Distance(new Vector2(cx, cy), new Vector2(currentCursorPos.x, currentCursorPos.y));
+                if(dist <= 23f) {
+                    sm.resultState = 0;
+                } else {
+                    sm.resultState = 1;
+                }
+                Debug.Log("distance from center: " + dist.ToString());
                 jatv.FinishRecording();
                 itvc.ShowIntervalTimer();
                 sm.isStartSession = false;

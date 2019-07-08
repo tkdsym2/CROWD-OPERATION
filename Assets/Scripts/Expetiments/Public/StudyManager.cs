@@ -23,6 +23,7 @@ public class StudyManager : MonoBehaviour
     public List<string> studySessions;
     public string perSession;
     public bool isStartSession;
+    public int resultState;// 0: success(correct self cursor), 1: error(not correct self cursor), 2: failed(time over)
     private ExperimentalManager em;
     public void Awake()
     {
