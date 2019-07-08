@@ -5,11 +5,20 @@ using UnityEngine.SceneManagement;
 
 public class StudyManager : MonoBehaviour
 {
+    // for moving user cursor and dummy cursor params
+    public bool isDelay;
+    public bool isDiscover;
+    public float delayTime;
+    public int dummyNum;
+    public float cdr;
+    public int minAngle;
+    public int maxAngle;
+    public float discoveredTime;
+    // for only experiments mode params
     public string subjectName;
     public bool isStartStudy;
     public bool finishInterval;
     public float sessionIntervalTime;
-    public bool isDiscover;
     public int selectedVisual;
     public List<string> studySessions;
     public string perSession;
@@ -17,6 +26,8 @@ public class StudyManager : MonoBehaviour
     private ExperimentalManager em;
     public void Awake()
     {
+        minAngle = 30;
+        maxAngle = 360-minAngle;
         subjectName = "your name";
         isStartStudy = false;
         finishInterval = false;
