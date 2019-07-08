@@ -10,10 +10,13 @@ public class IntervalTimer : MonoBehaviour
     private Text timerView;
     private float intervalTime;
     private int seconds;
+    public GameObject userCursor;
+    private ExCursorMove excv;
     // Start is called before the first frame update
     void Start()
     {
-        sm = studyManager.GetComponent<StudyManager>();
+        sm = GameObject.Find("StudyManager").GetComponent<StudyManager>();
+        excv = userCursor.GetComponent<ExCursorMove>();
         timerView = gameObject.GetComponent<Text>();
         intervalTime = sm.sessionIntervalTime;// interval is 3 seconds
     }
@@ -28,8 +31,22 @@ public class IntervalTimer : MonoBehaviour
             if(seconds <= 0){
                 sm.sessionIntervalTime = 4.0f;
                 sm.finishInterval = true;
+                SetStudyParams();
+                sm.isStartSession = !sm.isStartSession;
                 return;
             }
         }
     }
+
+    private void SetStudyParams()
+    {
+        int sessionCount = sm.studySessions.Count;
+        int sessionNum = UnityEngine.Random.Range(0, sessionCount);
+        sm.perSession = sm.studySessions[sessionNum];
+        sm.studySessions.RemoveAt(sessionNum);
+        string[] _params = sm.perSession.Split(',');
+        sm.dummyNum = int.Parse(_params[0]);
+        sm.delayTime = float.Parse(_params[1]) / 1000f;
+        sm.isDelay = (sm.delayTime) == 0f ? true : false;
+        sm.cdr = float.Parse(_params[2]);
 }
