@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class IntervalTimer : MonoBehaviour
 {
-    public GameObject studyManager;
     private StudyManager sm;
     private Text timerView;
     private float intervalTime;
@@ -44,9 +43,13 @@ public class IntervalTimer : MonoBehaviour
         int sessionNum = UnityEngine.Random.Range(0, sessionCount);
         sm.perSession = sm.studySessions[sessionNum];
         sm.studySessions.RemoveAt(sessionNum);
+
         string[] _params = sm.perSession.Split(',');
         sm.dummyNum = int.Parse(_params[0]);
         sm.delayTime = float.Parse(_params[1]) / 1000f;
         sm.isDelay = (sm.delayTime) == 0f ? true : false;
         sm.cdr = float.Parse(_params[2]);
+
+        excv.RandomizeCursorPos();// generate user cursor
+    }
 }
