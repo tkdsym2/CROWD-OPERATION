@@ -491,12 +491,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3a10629cf1904aa6919078d234613c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDelay: 0
+  isDiscover: 0
+  delayTime: 0
+  dummyNum: 0
+  cdr: 0
+  minAngle: 0
+  maxAngle: 0
+  discoveredTime: 0
   subjectName: 
   isStartStudy: 0
   finishInterval: 0
   sessionIntervalTime: 0
-  isDiscover: 0
   selectedVisual: 0
+  studySessions: []
+  perSession: 
+  isStartSession: 0
 --- !u!1 &332568774
 GameObject:
   m_ObjectHideFlags: 0
@@ -668,7 +678,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 152f29102dec549eca287043429153ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  studyManager: {fileID: 268967042}
+  userCursor: {fileID: 1473109162}
 --- !u!1 &819007285
 GameObject:
   m_ObjectHideFlags: 0
@@ -996,6 +1006,7 @@ GameObject:
   - component: {fileID: 1473109164}
   - component: {fileID: 1473109163}
   - component: {fileID: 1473109165}
+  - component: {fileID: 1473109166}
   m_Layer: 0
   m_Name: UserCursor
   m_TagString: Untagged
@@ -1086,6 +1097,19 @@ MonoBehaviour:
   squareCursor: {fileID: 21300000, guid: 4aa46b67f0b8944468d4a929a4b445b6, type: 3}
   discoveredSquareCursor: {fileID: 21300000, guid: 5459a831dcca745d1ae8072c8f5a8013,
     type: 3}
+--- !u!114 &1473109166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1473109162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9442a1ed1ba1e437b884061e62d4ae2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  studyManager: {fileID: 268967042}
 --- !u!1 &1744439092
 GameObject:
   m_ObjectHideFlags: 0
