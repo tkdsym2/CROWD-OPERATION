@@ -57,6 +57,7 @@ public class IntervalTimer : MonoBehaviour
     private void SetStudyParams()
     {
         int sessionCount = sm.studySessions.Count;
+        if(sessionCount == 0) Quit();
         int sessionNum = UnityEngine.Random.Range(0, sessionCount);
         sm.perSession = sm.studySessions[sessionNum];
         sm.studySessions.RemoveAt(sessionNum);
@@ -69,5 +70,13 @@ public class IntervalTimer : MonoBehaviour
 
         excv.RandomizeCursorPos();// generate user cursor
         if(sm.dummyNum > 1) exdc.GenerateDummyCursor(sm.dummyNum);// generate dummy curosr
+    }
+
+    void Quit() {
+        #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+        #elif UNITY_STANDALONE
+            UnityEngine.Application.Quit();
+        #endif
     }
 }
