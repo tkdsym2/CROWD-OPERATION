@@ -41,6 +41,8 @@ public class RegisteringSubject : MonoBehaviour
             GenerateFile(sm.subjectName);
             csp.HideStartPanel();
             itvc.ShowIntervalTimer();
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
         }
     }
 
