@@ -24,6 +24,10 @@ public class StudyManager : MonoBehaviour
     public string perSession;
     public bool isStartSession;
     public int resultState;// 0: success(correct self cursor), 1: error(not correct self cursor), 2: failed(time over)
+    public float initx, inity;// initialize cursor position
+    public int currentSession;
+    public string rootPath, absPath, relPath;
+    public List<Vector2> absPosStock, relPosStock;
     private ExperimentalManager em;
     public void Awake()
     {
@@ -37,6 +41,14 @@ public class StudyManager : MonoBehaviour
         selectedVisual = 0;
         perSession = "";
         isStartSession = false;
+        initx = 0;
+        inity = 0;
+        currentSession = 0;
+        rootPath = "";
+        absPath = "";
+        relPath = "";
+        absPosStock = new List<Vector2>();
+        relPosStock = new List<Vector2>();
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
     // Start is called before the first frame update
@@ -61,5 +73,7 @@ public class StudyManager : MonoBehaviour
     {
         em = GameObject.Find("ExperimentalManager").GetComponent<ExperimentalManager>();
         studySessions = new List<string>(em.ExperimentalSettings);
+        minAngle = em.minAngle;
+        maxAngle = 360 - minAngle;
     }
 }
