@@ -39,3 +39,5 @@ sysinfo.txt
 # vscode settings
 /.vscode/
 
+# ignore experiments data dir
+/data/
