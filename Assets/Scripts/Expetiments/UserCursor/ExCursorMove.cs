@@ -50,11 +50,11 @@ public class ExCursorMove : MonoBehaviour
             } else {
                 UserCursorFunc.MoveCursor(gameObject, direction, sm.cdr);
             }
-            Vector3 screenPos = Camera.main.WorldToScreenPoint(gameObject.transform.position);
-            sm.absPosStock.Add(new Vector2(screenPos.x, screenPos.y));
-            sm.relPosStock.Add(new Vector2(screenPos.x - px, screenPos.y - py));
-            px = screenPos.x;
-            py = screenPos.y;
+
+            sm.absPosStock.Add(new Vector2(gameObject.transform.position.x, gameObject.transform.position.y));
+            sm.relPosStock.Add(new Vector2(gameObject.transform.position.x - px, gameObject.transform.position.y - py));
+            px = gameObject.transform.position.x;
+            py = gameObject.transform.position.y;
 
             if (Input.GetKeyDown(KeyCode.Space) && sm.isStartStudy)
             {
@@ -78,8 +78,8 @@ public class ExCursorMove : MonoBehaviour
         Vector3 screenPos = Camera.main.WorldToScreenPoint(new Vector3(rx, ry, 0));
         sm.initx = screenPos.x;
         sm.inity = screenPos.y;
-        px = screenPos.x;
-        py = screenPos.y;
+        px = rx;
+        py = ry;
         sm.absPosStock.Clear();
         sm.relPosStock.Clear();
         gameObject.transform.position = new Vector3(rx, ry, 0);

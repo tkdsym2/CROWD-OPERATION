@@ -123,7 +123,8 @@ public class JudgeAndTimeViewer : MonoBehaviour
         sw = fi.AppendText();
         for(int i = 0; i < sm.absPosStock.Count; i++)
         {
-            string[] pos = {sm.absPosStock[i].x.ToString(), sm.absPosStock[i].y.ToString()};
+            Vector3 converted  = Camera.main.WorldToScreenPoint(new Vector3(sm.absPosStock[i].x, sm.absPosStock[i].y, 0));
+            string[] pos = {converted.x.ToString(), converted.y.ToString()};
             string _pos = string.Join(",", pos);
             sw.WriteLine(_pos);
         }
@@ -138,7 +139,8 @@ public class JudgeAndTimeViewer : MonoBehaviour
         sw = fi.AppendText();
         for(int i = 0; i < sm.relPosStock.Count; i++)
         {
-            string[] pos = {sm.relPosStock[i].x.ToString(), sm.relPosStock[i].y.ToString()};
+            Vector3 converted  = Camera.main.WorldToScreenPoint(new Vector3(sm.relPosStock[i].x, sm.relPosStock[i].y, 0));
+            string[] pos = {(converted.x - Screen.width/2).ToString(), (converted.y - Screen.height/2).ToString()};
             string _pos = string.Join(",", pos);
             sw.WriteLine(_pos);
         }
