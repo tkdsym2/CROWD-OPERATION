@@ -13,6 +13,7 @@ public class ExCursorMove : MonoBehaviour
     private Vector3 ConvertPosition;
     private float delayTime, cdr;
     private float cx, cy;
+    private float px, py;
 
     public Text judgeAndTimeView;
     private JudgeAndTimeViewer jatv;
@@ -49,6 +50,11 @@ public class ExCursorMove : MonoBehaviour
             } else {
                 UserCursorFunc.MoveCursor(gameObject, direction, sm.cdr);
             }
+            Vector3 screenPos = Camera.main.WorldToScreenPoint(gameObject.transform.position);
+            sm.absPosStock.Add(new Vector2(screenPos.x, screenPos.y));
+            sm.relPosStock.Add(new Vector2(screenPos.x - px, screenPos.y - py));
+            px = screenPos.x;
+            py = screenPos.y;
 
             if (Input.GetKeyDown(KeyCode.Space) && sm.isStartStudy)
             {
@@ -59,7 +65,6 @@ public class ExCursorMove : MonoBehaviour
                 } else {
                     sm.resultState = 1;
                 }
-                Debug.Log("distance from center: " + dist.ToString());
                 jatv.FinishRecording();
                 itvc.ShowIntervalTimer();
                 sm.isStartSession = false;
@@ -70,6 +75,13 @@ public class ExCursorMove : MonoBehaviour
     public void RandomizeCursorPos() {
         rx = UnityEngine.Random.Range(-9.0f, 9.0f);
         ry = UnityEngine.Random.Range(-5.0f, 5.0f);
+        Vector3 screenPos = Camera.main.WorldToScreenPoint(new Vector3(rx, ry, 0));
+        sm.initx = screenPos.x;
+        sm.inity = screenPos.y;
+        px = screenPos.x;
+        py = screenPos.y;
+        sm.absPosStock.Clear();
+        sm.relPosStock.Clear();
         gameObject.transform.position = new Vector3(rx, ry, 0);
     }
 }
