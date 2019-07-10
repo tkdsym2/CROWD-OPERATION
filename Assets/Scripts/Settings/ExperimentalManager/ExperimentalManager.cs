@@ -23,7 +23,7 @@ public class ExperimentalManager : MonoBehaviour
     void Awake()
     {
         dummyNumSession = new List<int>();
-        dummyNumSession.Add(1);
+        dummyNumSession.Add(4);
         minDelay = 0.0f;
         maxDelay = 1.0f;
         intervalDelay = 0.05f;
@@ -49,10 +49,10 @@ public class ExperimentalManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown("e")) ChangeScene();
+
     }
 
-    private void ChangeScene()
+    public void ChangeScene()
     {
         SaveSeaquence();
         DontDestroyOnLoad(this);
