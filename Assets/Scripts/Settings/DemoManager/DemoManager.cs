@@ -31,10 +31,10 @@ public class DemoManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown("s")) ChangeScene();
+        
     }
 
-    private void ChangeScene()
+    public void ChangeScene()
     {
         DontDestroyOnLoad(this);// store for all scene
         SceneManager.LoadScene("Demo", LoadSceneMode.Single);
