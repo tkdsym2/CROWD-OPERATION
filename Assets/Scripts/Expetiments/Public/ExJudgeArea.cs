@@ -20,10 +20,5 @@ public class ExJudgeArea : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // if(sm.isStartSession) {
-        //     gameObject.SetActive(false);
-        // } else {
-        //     gameObject.SetActive(true);
-        // }
     }
 }
