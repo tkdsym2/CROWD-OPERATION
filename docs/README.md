@@ -8,13 +8,19 @@
 デモ（Demo Scene） か 実験モード（Experimental Scene） に移行する最初のシーン．
 それぞれの詳しい説明は各シーンごとに分けているので，詳細はそちらを参照されたい．
 `/Assets/Scenes/Settings` を Unity Editor でダブルクリックするとヒエラルキー部分にGameObjectが並ぶ．
-詳細： [`/docs/Settings.md`](/Settings.md)
+詳細： [`/docs/Settings.md`](/docs/Settings.md)
 
 ## Demo Scene
 
+Work In Progress ...
+
 ## Experimental Scene
 
+Work In Progress ...
+
 ## Scripts
+
+Work In Progress ...
 
 ## Dummy Cursor Algorithm
 
@@ -23,6 +29,12 @@
 
 ## Control-Display Ratio
 
-## Export Excel
+カーソル-ディスプレイ比について．Settings SceneでDemoとExperimentsの両方のCDRを管理している．
+専用のアプリケーションを製作中．
+詳細： [`/docs/CDR.md`](/docs/CDR.md)
+
+## Export Data
+
+Work In Progress ...
 
 
