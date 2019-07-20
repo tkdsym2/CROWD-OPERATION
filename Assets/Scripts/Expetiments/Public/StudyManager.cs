@@ -27,6 +27,7 @@ public class StudyManager : MonoBehaviour
     public float initx, inity;// initialize cursor position
     public int currentSession;
     public string rootPath, absPath, relPath;
+    public float timeLimit;
     public List<Vector2> absPosStock, relPosStock;
     private ExperimentalManager em;
     public void Awake()
@@ -49,6 +50,7 @@ public class StudyManager : MonoBehaviour
         relPath = "";
         absPosStock = new List<Vector2>();
         relPosStock = new List<Vector2>();
+        timeLimit = 4.0f;
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
     // Start is called before the first frame update

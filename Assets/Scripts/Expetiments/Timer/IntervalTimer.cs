@@ -18,6 +18,8 @@ public class IntervalTimer : MonoBehaviour
 
     public Canvas timerPanel;
     private IntervalTimerViewController itvc;
+    public Canvas trialPanel;
+    private ControlTrialPanel ctp;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +29,7 @@ public class IntervalTimer : MonoBehaviour
         jatv = judgeAndTimeView.GetComponent<JudgeAndTimeViewer>();
         itvc = timerPanel.GetComponent<IntervalTimerViewController>();
         timerView = gameObject.GetComponent<Text>();
+        ctp = trialPanel.GetComponent<ControlTrialPanel>();
         intervalTime = sm.sessionIntervalTime;// interval is 3 seconds
     }
 
@@ -50,6 +53,7 @@ public class IntervalTimer : MonoBehaviour
             jatv.StartRecording();
             itvc.HideIntervalTimer();
             sm.isStartSession = !sm.isStartSession;
+            ctp.ShowTrialPanel();
             return;
         }
     }

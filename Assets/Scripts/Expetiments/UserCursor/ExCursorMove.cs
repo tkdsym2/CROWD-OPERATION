@@ -22,6 +22,11 @@ public class ExCursorMove : MonoBehaviour
     public Text intervalTimer;
     private IntervalTimer it;
 
+    public Canvas trialPanel;
+    private ControlTrialPanel ctp;
+    public Text timerView;
+    private TimerView tv;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +34,8 @@ public class ExCursorMove : MonoBehaviour
         jatv = judgeAndTimeView.GetComponent<JudgeAndTimeViewer>();
         itvc = timerPanel.GetComponent<IntervalTimerViewController>();
         it = intervalTimer.GetComponent<IntervalTimer>();
+        ctp = trialPanel.GetComponent<ControlTrialPanel>();
+        tv = timerView.GetComponent<TimerView>();
         cx = Screen.width/2;
         cy = Screen.height/2;
     }
@@ -55,20 +62,9 @@ public class ExCursorMove : MonoBehaviour
             sm.relPosStock.Add(new Vector2(gameObject.transform.position.x - px, gameObject.transform.position.y - py));
             px = gameObject.transform.position.x;
             py = gameObject.transform.position.y;
+            
 
-            if (Input.GetKeyDown(KeyCode.Space) && sm.isStartStudy)
-            {
-                Vector3 currentCursorPos = Camera.main.WorldToScreenPoint(gameObject.transform.position);
-                float dist = Vector2.Distance(new Vector2(cx, cy), new Vector2(currentCursorPos.x, currentCursorPos.y));
-                if(dist <= 23f) {
-                    sm.resultState = 0;
-                } else {
-                    sm.resultState = 1;
-                }
-                jatv.FinishRecording();
-                itvc.ShowIntervalTimer();
-                sm.isStartSession = false;
-            }
+            if (Input.GetKeyDown(KeyCode.Space) && sm.isStartStudy) FinishSession();
         }
     }
 
@@ -83,5 +79,21 @@ public class ExCursorMove : MonoBehaviour
         sm.absPosStock.Clear();
         sm.relPosStock.Clear();
         gameObject.transform.position = new Vector3(rx, ry, 0);
+    }
+
+    public void FinishSession()
+    {
+        Vector3 currentCursorPos = Camera.main.WorldToScreenPoint(gameObject.transform.position);
+        float dist = Vector2.Distance(new Vector2(cx, cy), new Vector2(currentCursorPos.x, currentCursorPos.y));
+        if(dist <= 23f) {
+            sm.resultState = 0;
+        } else {
+            sm.resultState = 1;
+        }
+        ctp.HideTrialPanel();
+        tv.ResetTimer();
+        jatv.FinishRecording();
+        itvc.ShowIntervalTimer();
+        sm.isStartSession = false;
     }
 }
