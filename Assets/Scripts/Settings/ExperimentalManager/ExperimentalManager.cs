@@ -17,27 +17,40 @@ public class ExperimentalManager : MonoBehaviour
     public List<float> cdrSession;
     public int selectedVisual;
     public List<int> delaySession;
+    public List<int> algoPattern;
     public List<string> ExperimentalSettings;
     public int trial;
 
     void Awake()
     {
         dummyNumSession = new List<int>();
-        dummyNumSession.Add(4);
+        dummyNumSession.Add(30);
+        dummyNumSession.Add(50);
+        dummyNumSession.Add(70);
+        dummyNumSession.Add(90);
+        dummyNumSession.Add(100);
         minDelay = 0.0f;
         maxDelay = 1.0f;
         intervalDelay = 0.05f;
-        minAngle = 30;
+        minAngle = 60;
         maxAngle = 360-minAngle;
         selectedVisual = 0;
         cdr = 1.0f;
         cdrSession = new List<float>();
         cdrSession.Add(cdr);
+        cdrSession.Add(0.5f);
+        cdrSession.Add(2.0f);
         delaySession = new List<int>();
         delaySession.Add(1);
+        algoPattern = new List<int>();
+        algoPattern.Add(0);// only x move
+        algoPattern.Add(1);// only y move
+        algoPattern.Add(2);// rotate angle pattern
+        algoPattern.Add(3);// look to player
+
         ExperimentalSettings = new List<string>();
         ExperimentalSettings.Add("init");
-        trial = 5;
+        trial = 10;
     }
 
     // Start is called before the first frame update
@@ -98,17 +111,25 @@ public class ExperimentalManager : MonoBehaviour
     {
         ExperimentalSettings.Clear();
         int delaySessionSum = CalcDelaySession(minDelay, maxDelay, intervalDelay);
-        for(int i = 0; i < dummyNumSession.Count; i++){
-            for(int j = 0; j < delaySessionSum; j++){
-                for(int k = 0; k < cdrSession.Count; k++){
-                    for(int l = 0; l < trial; l++){
-                        int _dummies = dummyNumSession[i];
-                        int _delay = delaySession[j];
-                        float _cdr = cdrSession[k];
-                        ExperimentalSettings.Add($"{_dummies.ToString()}" + "," + $"{_delay.ToString()}" + "," + $"{_cdr.ToString()}");
-                    }
-                }
-            }
+        for(int i = 0; i < trial; i++)
+        {
+            int _dummies = dummyNumSession[Random.Range(0, dummyNumSession.Count)];
+            int _delay = delaySession[Random.Range(0, delaySession.Count)];
+            float _cdr = cdrSession[Random.Range(0, cdrSession.Count)];
+            int _algo = algoPattern[Random.Range(0, algoPattern.Count)];
+            ExperimentalSettings.Add($"{_dummies.ToString()}" + "," + $"{_delay.ToString()}" + "," + $"{_cdr.ToString()}" + "," + $"{_algo.ToString()}");
         }
+        // for(int i = 0; i < dummyNumSession.Count; i++){
+        //     for(int j = 0; j < delaySessionSum; j++){
+        //         for(int k = 0; k < cdrSession.Count; k++){
+        //             for(int l = 0; l < trial; l++){
+        //                 int _dummies = dummyNumSession[i];
+        //                 int _delay = delaySession[j];
+        //                 float _cdr = cdrSession[k];
+        //                 ExperimentalSettings.Add($"{_dummies.ToString()}" + "," + $"{_delay.ToString()}" + "," + $"{_cdr.ToString()}");
+        //             }
+        //         }
+        //     }
+        // }
     }
 }

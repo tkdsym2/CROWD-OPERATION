@@ -21,18 +21,18 @@ public class ExCursorView : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && sm.isStartStudy)
-        {
-            sm.isDiscover = !sm.isDiscover;
+        // if (Input.GetKeyDown(KeyCode.Space) && sm.isStartStudy)
+        // {
+        //     sm.isDiscover = !sm.isDiscover;
 
-        }
-        ChangeCursorVisual(sm.selectedVisual);
+        // }
+        ChangeCursorVisual(0);
     }
 
     private void ChangeCursorVisual(int _num)
     {
-        if (sm.isDiscover)
-        {
+        // if (sm.isDiscover)
+        // {
             switch(_num)
             {
                 case 0:
@@ -47,23 +47,23 @@ public class ExCursorView : MonoBehaviour
                 default:
                     break;
             }
-        }
-        else
-        {
-            switch(_num)
-            {
-                case 0:
-                    MainSpriteRenderer.sprite = squareCursor;
-                    break;
-                case 1:
-                    MainSpriteRenderer.sprite = circleCursor;
-                    break;
-                case 2:
-                    MainSpriteRenderer.sprite = defaultCursor;
-                    break;
-                default:
-                    break;
-            }
-        }
+        // }
+        // else
+        // {
+        //     switch(_num)
+        //     {
+        //         case 0:
+        //             MainSpriteRenderer.sprite = squareCursor;
+        //             break;
+        //         case 1:
+        //             MainSpriteRenderer.sprite = circleCursor;
+        //             break;
+        //         case 2:
+        //             MainSpriteRenderer.sprite = defaultCursor;
+        //             break;
+        //         default:
+        //             break;
+        //     }
+        // }
     }
 }

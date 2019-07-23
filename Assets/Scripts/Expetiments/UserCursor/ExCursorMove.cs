@@ -64,13 +64,13 @@ public class ExCursorMove : MonoBehaviour
             py = gameObject.transform.position.y;
             
 
-            if (Input.GetKeyDown(KeyCode.Space) && sm.isStartStudy) FinishSession();
+            if (gameObject.transform.position.y >= 4.6f && sm.isStartStudy) FinishSession();
         }
     }
 
     public void RandomizeCursorPos() {
         rx = UnityEngine.Random.Range(-9.0f, 9.0f);
-        ry = UnityEngine.Random.Range(-5.0f, 5.0f);
+        ry = UnityEngine.Random.Range(-4.5f, -5.0f);
         Vector3 screenPos = Camera.main.WorldToScreenPoint(new Vector3(rx, ry, 0));
         sm.initx = screenPos.x;
         sm.inity = screenPos.y;
@@ -83,17 +83,26 @@ public class ExCursorMove : MonoBehaviour
 
     public void FinishSession()
     {
-        Vector3 currentCursorPos = Camera.main.WorldToScreenPoint(gameObject.transform.position);
-        float dist = Vector2.Distance(new Vector2(cx, cy), new Vector2(currentCursorPos.x, currentCursorPos.y));
-        if(dist <= 23f) {
-            sm.resultState = 0;
-        } else {
+        if(gameObject.transform.position.y <= 4.5f)
+        {
             sm.resultState = 1;
+        } else {
+            sm.resultState = 0;
         }
         ctp.HideTrialPanel();
         tv.ResetTimer();
         jatv.FinishRecording();
         itvc.ShowIntervalTimer();
+        sm.HP = 100;
         sm.isStartSession = false;
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        sm.HP = sm.HP - 20;
+        if(sm.HP == 0)
+        {
+            FinishSession();
+        }
     }
 }

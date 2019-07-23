@@ -28,11 +28,14 @@ public class StudyManager : MonoBehaviour
     public int currentSession;
     public string rootPath, absPath, relPath;
     public float timeLimit;
+    public int algoPattern;
     public List<Vector2> absPosStock, relPosStock;
     private ExperimentalManager em;
+
+    public int HP;
     public void Awake()
     {
-        minAngle = 30;
+        minAngle = 60;
         maxAngle = 360-minAngle;
         subjectName = "your name";
         isStartStudy = false;
@@ -50,7 +53,8 @@ public class StudyManager : MonoBehaviour
         relPath = "";
         absPosStock = new List<Vector2>();
         relPosStock = new List<Vector2>();
-        timeLimit = 4.0f;
+        timeLimit = 31.0f;
+        HP = 100;
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
     // Start is called before the first frame update

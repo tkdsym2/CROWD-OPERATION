@@ -20,7 +20,6 @@ namespace MoveFunction
         private static Vector3 CursorRange(Vector3 _pos)
         {
             int width = Screen.width;
-            int height = Screen.height;
             Vector3 screenPoint = Camera.main.WorldToScreenPoint(_pos);
             if (screenPoint.x < 0)
             {
@@ -30,16 +29,6 @@ namespace MoveFunction
             {
                 screenPoint.x = 0;
             }
-
-            if (screenPoint.y < 0)
-            {
-                screenPoint.y = height;
-            }
-            else if (screenPoint.y > height)
-            {
-                screenPoint.y = 0;
-            }
-
             _pos = Camera.main.ScreenToWorldPoint(screenPoint);
             return _pos;
         }
@@ -92,25 +81,59 @@ namespace MoveFunction
             _action();
         }
 
-        private static Vector3 CalcDirection(float _angle, Vector3 _direction)
+        private static Vector3 CalcDirection(float _angle, Vector3 _direction, int _pattern)
         {
-            float _drangle = _angle;
-            float moveRad = (float)(System.Math.PI * _drangle / 180.0);
-            float rad = (float)(System.Math.Atan2(_direction.y, _direction.x) + moveRad);
-            float moveDist = _direction.magnitude;
-            float relativeX = (float)(moveDist * System.Math.Cos(rad));
-            float relativeY = (float)(moveDist * System.Math.Sin(rad));
-            Vector3 addDirection = new Vector3(relativeX, relativeY, 0);
-            return addDirection;
+            Vector3 addDirection;
+            if(_pattern == 0)
+            {
+                float _drangle = _angle;
+                float moveRad = UnityEngine.Random.Range(60.0f, 360.0f);
+                float rad = (float)(System.Math.Atan2(_direction.y, _direction.x) + moveRad);
+                float moveDist = _direction.magnitude;
+                float relativeX = (float)(moveDist * System.Math.Cos(rad));
+                float relativeY = (float)(moveDist * System.Math.Sin(rad));
+                addDirection = new Vector3(relativeX, relativeY, 0);
+                return addDirection;
+            } else if(_pattern == 1){
+                float _drangle = _angle;
+                float moveRad = (float)(System.Math.PI * _drangle / 180.0);
+                float rad = (float)(System.Math.Atan2(_direction.y, _direction.x) + moveRad);
+                float moveDist = _direction.magnitude;
+                float relativeX = (float)(moveDist * System.Math.Cos(rad));
+                float relativeY = (float)(moveDist * System.Math.Sin(rad));
+                addDirection = new Vector3(relativeY, relativeY, 0);
+                return addDirection;
+            } else if(_pattern == 2)
+            {
+                float _drangle = _angle;
+                float moveRad = (float)(System.Math.PI * _drangle / 180.0);
+                float rad = (float)(System.Math.Atan2(_direction.y, _direction.x) + moveRad);
+                float moveDist = _direction.magnitude;
+                float relativeX = (float)(moveDist * System.Math.Cos(rad));
+                float relativeY = (float)(moveDist * System.Math.Sin(rad));
+                addDirection = new Vector3(relativeX, relativeY, 0);
+                return addDirection;
+            } else if(_pattern == 3)
+            {
+                float _drangle = _angle;
+                float moveRad = (float)(System.Math.PI * _drangle / 180.0);
+                float rad = (float)(System.Math.Atan2(_direction.y, _direction.x) + moveRad);
+                float moveDist = _direction.magnitude;
+                float relativeX = (float)(moveDist * System.Math.Cos(rad));
+                float relativeY = (float)(moveDist * System.Math.Sin(rad));
+                addDirection = new Vector3(relativeY, relativeX, 0);
+                return addDirection;
+            }
+            return Vector3.zero;
         }
 
         // args:
         //      _gameObject: generated DummyCursor
         //      _direction: mouse axis
-        public static void MoveDummyCursor(GameObject _gameObject, Vector3 _direction, float _cdr)
+        public static void MoveDummyCursor(GameObject _gameObject, Vector3 _direction, float _cdr, int _pattern)
         {
             _gameObject.transform.position = CursorRange(_gameObject.transform.position);
-            _gameObject.transform.position += _cdr * CalcDirection(_gameObject.transform.position.z, _direction);
+            _gameObject.transform.position += _cdr * CalcDirection(_gameObject.transform.position.z, _direction, _pattern);
         }
     }
 }

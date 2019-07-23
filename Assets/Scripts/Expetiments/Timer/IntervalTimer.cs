@@ -71,6 +71,7 @@ public class IntervalTimer : MonoBehaviour
         sm.delayTime = float.Parse(_params[1]) / 1000f;
         sm.isDelay = (sm.delayTime) == 0f ? false : true;
         sm.cdr = float.Parse(_params[2]);
+        sm.algoPattern = int.Parse(_params[3]);
 
         excv.RandomizeCursorPos();// generate user cursor
         if(sm.dummyNum > 1) exdc.GenerateDummyCursor(sm.dummyNum);// generate dummy curosr

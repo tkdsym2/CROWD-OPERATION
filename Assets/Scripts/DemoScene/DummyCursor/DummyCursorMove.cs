@@ -24,11 +24,11 @@ public class DummyCursorMove : MonoBehaviour
         if(!sm.isDelay){
             StartCoroutine(DummyCursorFunc.DelayCursor(sm.delayTime, () =>
             {
-                DummyCursorFunc.MoveDummyCursor(gameObject, direction, sm.cdr);
+                DummyCursorFunc.MoveDummyCursor(gameObject, direction, sm.cdr, 2);
                 clone = gameObject.transform.position;
             }));
         } else {
-            DummyCursorFunc.MoveDummyCursor(gameObject, direction, sm.cdr);
+            DummyCursorFunc.MoveDummyCursor(gameObject, direction, sm.cdr, 2);
                 clone = gameObject.transform.position;
         }
     }
